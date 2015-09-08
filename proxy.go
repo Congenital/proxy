@@ -20,6 +20,7 @@ func HttpGet(Url string, param string, proxy_addr string) ([]byte, error) {
 		Transport: &http.Transport{
 			TLSClientConfig:    &tls.Config{},
 			DisableCompression: true,
+			InsecureSkipVerify: true,
 			Proxy:              http.ProxyURL(proxy),
 		},
 	}
