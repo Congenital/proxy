@@ -18,9 +18,10 @@ func HttpGet(Url string, param string, proxy_addr string) ([]byte, error) {
 
 	client := &http.Client{
 		Transport: &http.Transport{
-			TLSClientConfig:    &tls.Config{},
+			TLSClientConfig: &tls.Config{
+				InsecureSkipVerify: true,
+			},
 			DisableCompression: true,
-			InsecureSkipVerify: true,
 			Proxy:              http.ProxyURL(proxy),
 		},
 	}
